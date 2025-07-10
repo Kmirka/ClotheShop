@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BAGGYZONE – Каталог</title>
+    <link rel="stylesheet" href="./catalog.css" />
+</head>
+
+<body>
+
+    <header>
+        <h1 class="logo">BAGGYZONE</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Головна</a></li>
+                <li><a href="catalog.html">Каталог</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="products">
+            <h2>Каталог товарів</h2>
+
+            <!-- 🔎 Фільтри -->
+            <div class="filters">
+                <button onclick="filterByPrice('all')">Усі</button>
+                <button onclick="filterByPrice('under500')">До 500₴</button>
+                <button onclick="filterByPrice('500-1000')">500–1000₴</button>
+                <button onclick="filterByPrice('over1000')">Понад 1000₴</button>
+            </div>
+
+            <!-- 🛍️ Товари -->
+            <div class="product" data-price="999">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBwdalps1yug8rkpyI9QU8u54isZfAPKijaA&s200x250"
+                    alt="Толстовка Street">
+                <h3>Толстовка Street Black</h3>
+                <p>Чорна оверсайз худі з м’якого трикотажу.</p>
+                <p><strong>Ціна:</strong> 999₴</p>
+                <button onclick="addToCart()">Додати в кошик</button>
+            </div>
+
+            <div class="product" data-price="1199">
+                <img src="https://via.placeholder.com/200x250" alt="Баггі джинси">
+                <h3>baggy jeans</h3>
+                <p>Світлі джинси з посадкою high waist.</p>
+                <p><strong>Ціна:</strong> 1199₴</p>
+                <button onclick="addToCart()">Додати в кошик</button>
+            </div>
+
+            <div class="product" data-price="499">
+                <img src="https://images.prom.ua/5753660662_futbolka-y2k-dual.jpg/200x250" alt="Футболка graffiti">
+                <h3>Футболка y2k</h3>
+                <p>Футболка y2k Dual </p>
+                <p><strong>Ціна:</strong> 499₴</p>
+                <button onclick="addToCart()">Додати в кошик</button>
+            </div>
+
+            <!-- Додай ще товари тут -->
+        </section>
+    </main>
+
+
+    <footer>
+        <p>© 2025 BAGGYZONE — стиль твого вулиці</p>
+    </footer>
+
+    <script src="./catalog.js"></script>
+</body>
+
+</html>

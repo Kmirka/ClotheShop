@@ -1,0 +1,87 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f3f3f3;
+  color: #222;
+}
+
+header {
+  background-color: #111;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 2em;
+}
+
+.logo {
+  font-size: 1.8em;
+  letter-spacing: 2px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.products {
+  padding: 2em;
+}
+
+.product {
+  background-color: white;
+  padding: 1em;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 1em;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.product img {
+  width: 200px;
+  height: auto;
+}
+
+button {
+  padding: 0.5em 1em;
+  background-color: #111;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 0.5em;
+}
+
+footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #222;
+  color: white;
+  margin-top: 3em;
+}
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filters button {
+  padding: 0.4em 1em;
+  border: 1px solid #111;
+  background-color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.filters button:hover {
+  background-color: #111;
+  color: white;
+}
