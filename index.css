@@ -69,3 +69,15 @@
   transform: scale(1.05);
   cursor: pointer;
 }
+
+.category{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* або інша висота */
+}
+
+.category img{
+    width: 12rem;
+    height: 350px;
+}
