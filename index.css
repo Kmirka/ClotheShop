@@ -74,10 +74,74 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* або інша висота */
+  height: 100%; /* або інша висота */
 }
 
-.category img{
-    width: 12rem;
-    height: 350px;
+.category {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+}
+
+.category-item {
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    transition: transform 0.3s;
+}
+
+.category-item img {
+    width: auto;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.category-item h3 {
+    margin-top: 10px;
+}
+
+.category-item:hover {
+    transform: scale(1.05);
+    color: #0077cc;
+}
+
+.season-collections {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.season-collections h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.season-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.season-item {
+  width: 220px;
+  text-decoration: none;
+  color: #222;
+  transition: transform 0.3s;
+}
+
+.season-item img {
+  width: 100%;
+  border-radius: 10px;
+  height: auto;
+}
+
+.season-item h3 {
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+.season-item:hover {
+  transform: scale(1.05);
+  color: #0077cc;
 }
