@@ -186,3 +186,33 @@ footer {
   font-size: 14px;
   color: #aaa;
 }
+
+.reviews {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.review-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 15px 20px;
+    margin: 15px 0;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.review-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.review-card h3 {
+    margin: 0 0 8px 0;
+    color: #222;
+}
+
+.review-card p {
+    margin: 5px 0;
+    color: #555;
+}
