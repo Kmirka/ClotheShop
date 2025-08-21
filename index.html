@@ -85,9 +85,8 @@
     </section>
 
     <!-- Секція відгуків -->
-    <section class="reviews">
+    <section class="reviews" id="reviews">
         <h2 style="text-align:center; margin-top:50px;">Відгуки наших клієнтів</h2>
-
         <div class="review-card">
             <h3>Олександр крутий</h3>
             <p>Класний магазин! Замовлення прийшло швидко, дуже задоволений.</p>
@@ -108,19 +107,87 @@
 
         <div class="review-card">
             <h3>Наталя верба</h3>
-            <p>Дуже гарний одяг! на моїй донечці дуже гарно. вона сама найкрутіша в дворі з кофтою зі смішаріками!</p>
+            <p>Дуже гарний одяг! на моїй донечці дуже гарно. вона сама найкрутіша в дворі з кофтою зі смішаріками!
+            </p>
             <p>Рейтинг: ★★★★★</p>
         </div>
 
-        
-          <div class="review-card">
+
+        <div class="review-card">
             <h3>ВІТАЛІК</h3>
             <p>гарний одяг. 1 зірка
-              рейтинг: ★☆☆☆☆</p>
+                рейтинг: ★☆☆☆☆</p>
+        </div>
+        <div id="reviewList">
+            <!-- Тут будуть відгуки -->
         </div>
 
-    </section>
+        <h3>Додати свій відгук:</h3>
+        <input type="text" id="reviewName" placeholder="Ваше ім'я">
+        <textarea id="reviewText" placeholder="Ваш відгук"></textarea>
+        <!-- Вибір рейтингу -->
+        <div id="starRating">
+            <span data-value="1" onclick="setRating(1)">☆</span>
+            <span data-value="2" onclick="setRating(2)">☆</span>
+            <span data-value="3" onclick="setRating(3)">☆</span>
+            <span data-value="4" onclick="setRating(4)">☆</span>
+            <span data-value="5" onclick="setRating(5)">☆</span>
+        </div>
 
+        <button onclick="addReview()">Додати відгук</button>
+
+
+
+
+    </section>
+    <script>
+        let currentRating = 0;
+
+        function setRating(rating) {
+            currentRating = rating;
+            const stars = document.querySelectorAll('#starRating span');
+            stars.forEach(star => {
+                star.textContent = (star.dataset.value <= rating) ? '★' : '☆';
+            });
+        }
+
+        function loadReviews() {
+            let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+            let reviewList = document.getElementById("reviewList");
+            reviewList.innerHTML = "";
+            reviews.forEach(r => {
+                let div = document.createElement("div");
+                div.className = "review-card";
+                div.innerHTML = `<h3>${r.name}</h3>
+                             <p>${r.text}</p>
+                             <p>Рейтинг: ${'★'.repeat(r.rating)}${'☆'.repeat(5 - r.rating)}</p>`;
+                reviewList.appendChild(div);
+            });
+        }
+
+        function addReview() {
+            let name = document.getElementById("reviewName").value.trim();
+            let text = document.getElementById("reviewText").value.trim();
+
+            if (!name || !text || currentRating === 0) {
+                alert("Заповніть усі поля та оберіть рейтинг!");
+                return;
+            }
+
+            let reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+            reviews.push({ name: name, text: text, rating: currentRating });
+            localStorage.setItem("reviews", JSON.stringify(reviews));
+
+            // Очищаємо форму
+            document.getElementById("reviewName").value = "";
+            document.getElementById("reviewText").value = "";
+            setRating(0);
+
+            loadReviews(); // оновлюємо список відгуків
+        }
+
+        document.addEventListener("DOMContentLoaded", loadReviews);
+    </script>
     <footer>
         <div class="footer-container">
             <div class="footer-section">
@@ -134,9 +201,14 @@
             </div>
             <div class="footer-section">
                 <h3>Соцмережі</h3>
-                <a href="#"><img width="40px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png" alt=""></a><br>
-                <a href="#"><img width="40px" src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fru.freepik.com%2Ffree-photos-vectors%2F%25D1%2584%25D0%25B5%25D0%25B9%25D1%2581%25D0%25B1%25D1%2583%25D0%25BA-%25D0%25BF%25D0%25BD%25D0%25B3&psig=AOvVaw2gm6SLk3zHPIs0vQLLXxj3&ust=1754668401441000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCICAvqiH-Y4DFQAAAAAdAAAAABAE" alt=""></a><br>
-                <a href="#"><img width="40px" src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png" alt=""></a>
+                <a href="#"><img width="40px"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/1200px-Instagram_logo_2022.svg.png"
+                        alt=""></a><br>
+                <a href="#"><img width="40px"
+                        src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fru.freepik.com%2Ffree-photos-vectors%2F%25D1%2584%25D0%25B5%25D0%25B9%25D1%2581%25D0%25B1%25D1%2583%25D0%25BA-%25D0%25BF%25D0%25BD%25D0%25B3&psig=AOvVaw2gm6SLk3zHPIs0vQLLXxj3&ust=1754668401441000&source=images&cd=vfe&opi=89978449&ved=0CBUQjRxqFwoTCICAvqiH-Y4DFQAAAAAdAAAAABAE"
+                        alt=""></a><br>
+                <a href="#"><img width="40px" src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Youtube_logo.png"
+                        alt=""></a>
             </div>
         </div>
         <p class="footer-bottom">© 2025 Всі права захищенні
