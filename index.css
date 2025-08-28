@@ -218,3 +218,148 @@ footer {
     margin: 5px 0;
     color: #555;
 }
+
+/* Стиль блоку відгуків */
+#reviewList {
+  margin: 20px 0;
+  padding: 15px;
+  /* background: #f8f9fa; */
+  border-radius: 12px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+
+/* Заголовок */
+h3 {
+  font-family: Arial, sans-serif;
+  color: #333;
+  margin-top: 25px;
+}
+
+/* Поля вводу */
+#reviewName, 
+#reviewText {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px;
+  margin: 8px 0;
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+#reviewName:focus, 
+#reviewText:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+/* Рейтинг зірок */
+#starRating {
+  margin: 10px 0;
+  font-size: 28px;
+  color: #ccc;
+  cursor: pointer;
+}
+
+#starRating span {
+  transition: color 0.2s, transform 0.2s;
+}
+
+#starRating span:hover,
+#starRating span:hover ~ span {
+  color: gold;
+  transform: scale(1.2);
+}
+
+/* Активна зірка */
+#starRating span.active {
+  color: gold;
+}
+
+/* Кнопка */
+button {
+  background: linear-gradient(135deg, #4CAF50, #2e8b57);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #45a049, #256d46);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+
+/* Рейтинг зірок */
+#starRating {
+  margin: 10px 0;
+  font-size: 28px;
+  color: #ccc;
+  cursor: pointer;
+  display: flex;         /* вирівнюємо зірки в ряд */
+  gap: 5px;
+}
+
+/* Загальний стиль зірок */
+#starRating span {
+  transition: color 0.2s, transform 0.2s;
+}
+
+/* При наведенні – зліва направо */
+#starRating span:hover,
+#starRating span:hover ~ span {
+  color: #ccc; /* прибираємо золото у тих, що праворуч */
+  transform: none;
+}
+
+/* Магія: коли наводимо на N-ту зірку, усі попередні теж золоті */
+#starRating span:nth-child(1):hover ~ span,
+#starRating span:nth-child(2):hover ~ span,
+#starRating span:nth-child(3):hover ~ span,
+#starRating span:nth-child(4):hover ~ span,
+#starRating span:nth-child(5):hover ~ span {
+  color: #ccc !important;
+}
+
+#starRating span:nth-child(1):hover {
+  color: gold;
+  transform: scale(1.2);
+}
+#starRating span:nth-child(2):hover,
+#starRating span:nth-child(2):hover ~ span:nth-child(-n+2) {
+  color: gold;
+  transform: scale(1.2);
+}
+#starRating span:nth-child(3):hover,
+#starRating span:nth-child(3):hover ~ span:nth-child(-n+3) {
+  color: gold;
+  transform: scale(1.2);
+}
+#starRating span:nth-child(4):hover,
+#starRating span:nth-child(4):hover ~ span:nth-child(-n+4) {
+  color: gold;
+  transform: scale(1.2);
+}
+#starRating span:nth-child(5):hover,
+#starRating span:nth-child(5):hover ~ span:nth-child(-n+5) {
+  color: gold;
+  transform: scale(1.2);
+}
+
+/* Активні зірки (після кліку) */
+#starRating span.active {
+  color: gold;
+}
+
+.addReview{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
