@@ -23,6 +23,7 @@ header {
 nav ul {
   list-style: none;
   display: flex;
+  align-items: center;
   gap: 20px;
 }
 
@@ -109,7 +110,8 @@ main .filters {
 }
 
 .cart {
-  width: 400px;
+  width: 500px;
+  max-height: 500px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -117,6 +119,7 @@ main .filters {
   right: 0;
   top: 105px;
   padding: 20px;
+  overflow-y: auto;
 }
 
 
@@ -128,8 +131,9 @@ main .filters {
 
 .cart-item {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
+  gap: 10px;
   padding: 12px;
   border-bottom: 1px solid #ddd;
 }
@@ -154,4 +158,23 @@ main .filters {
   font-weight: bold;
   margin-top: 20px;
   color: #222;
+
+  margin-bottom: 1rem;
+}
+
+.total-block{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+}
+
+.carty-icon{
+  width: 30px;
+  height: 30px;
+  filter: invert(1);
+}
+
+.cart.hidden{
+  display: none;
 }
