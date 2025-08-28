@@ -87,19 +87,40 @@ function checkout() {
   renderCart();
 }
 
-function filterByPrice(range) {
+let currentPriceRange = 'all';
+let currentCategory = 'all';
+
+function applyFilters() {
   const products = document.querySelectorAll('.product');
 
   products.forEach(product => {
     const price = parseInt(product.getAttribute('data-price'));
+    const category = product.getAttribute('data-category');
 
-    let show = false;
+    let priceMatch = false;
+    let categoryMatch = false;
 
-    if (range === 'all') show = true;
-    else if (range === 'under500' && price <= 500) show = true;
-    else if (range === '500-1000' && price > 500 && price <= 1000) show = true;
-    else if (range === 'over1000' && price > 1000) show = true;
+    // Фільтр по ціні
+    if (currentPriceRange === 'all') priceMatch = true;
+    else if (currentPriceRange === 'under500' && price <= 500) priceMatch = true;
+    else if (currentPriceRange === '500-1000' && price > 500 && price <= 1000) priceMatch = true;
+    else if (currentPriceRange === 'over1000' && price > 1000) priceMatch = true;
 
-    product.style.display = show ? 'inline-block' : 'none';
+    // Фільтр по категорії
+    if (currentCategory === 'all') categoryMatch = true;
+    else if (category === currentCategory) categoryMatch = true;
+
+    product.style.display = (priceMatch && categoryMatch) ? 'inline-block' : 'none';
   });
+}
+
+// Окремі функції для натискання на кнопки:
+function setPriceFilter(range) {
+  currentPriceRange = range;
+  applyFilters();
+}
+
+function setCategoryFilter(category) {
+  currentCategory = category;
+  applyFilters();
 }
