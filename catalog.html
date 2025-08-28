@@ -16,6 +16,7 @@
             <ul>
                 <li><a href="index.html">Головна</a></li>
                 <li><a href="catalog.html">Каталог</a></li>
+                <li><button class="cart-button" onclick="toggleCart()"><img class="carty-icon" src="./images/cart.svg" alt=""></button></li>
             </ul>
         </nav>
     </header>
@@ -170,7 +171,7 @@
             <div class="product" data-price="299">
                 <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT19r78xrxt-YkmxZnlMXMxkQsL1anAtQp4582WrbaQ7WMq9KTuENi9u7C45JQEXNbWQMRJ11nCxceaWrJ0ybb9hScnbQ_SIjzB47LUg0McFo55Mt5yvubN4ZtjH55jmf12qNt8A2pm23g&usqp=CAc"
                     alt="">
-                <h3>чоловіч афутболка з білим рукавом</h3>
+                <h3>чоловіча футболка з білим рукавом</h3>
                 <p></p>
                 <p><strong>Ціна:</strong>299 ₴</p>
                 <button onclick="addToCart(this)">Додати в кошик</button>
@@ -256,7 +257,7 @@
             <div class="product" data-price="1900">
                 <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRb6WKmsAi_hOYsYxl3Yr5J0gq2wTTJH4-jugs4jtanLY54Iw-1rl7dNUE2L5r1A23TpRBB9BTdnjCgBYnUssePqaVGnTEkAsZccS5B5SK1iB182By4207f&usqp=CAc"
                     alt="">
-                <h3>чорніджинси з цепкою</h3>
+                <h3>чорні джинси з цепкою</h3>
                 <p></p>
                 <p><strong>Ціна:</strong>1900 ₴</p>
                 <button onclick="addToCart(this)">Додати в кошик</button>
@@ -321,9 +322,11 @@
         <div class="cart-items">
            
         </div>
-
-        <div class="total">
-            Всього: 0 грн
+        <div class="total-block">
+            <div class="total">
+                Всього: 0 грн
+            </div>
+            <button class="checkout-btn" onclick="checkout()">Оформити замовлення</button>
         </div>
     </div>
 
